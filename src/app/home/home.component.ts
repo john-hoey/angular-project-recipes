@@ -8,11 +8,13 @@ import { RecipeBrainService } from '../recipe-brain.service';
 })
 export class HomeComponent implements OnInit {
   recipeData: any;
+  favoriteRecipes: any[] = [];
 
   constructor(private recipeService: RecipeBrainService) {}
 
   ngOnInit(): void {
     this.getInitialRecipes();
+    this.getAndSetFavorites();
     // this.getNextRecipes();
     // this.getPreviousRecipes();
   }
@@ -45,5 +47,12 @@ export class HomeComponent implements OnInit {
       this.recipeData = response;
       console.log(response);
     });
+  };
+  onFavorite = (recipe: any): void => {
+    this.recipeService.addFavorite(recipe);
+    this.getAndSetFavorites();
+  };
+  getAndSetFavorites = (): void => {
+    this.favoriteRecipes = this.recipeService.getFavorites();
   };
 }

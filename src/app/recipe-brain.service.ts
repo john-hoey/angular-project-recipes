@@ -13,7 +13,7 @@ export class RecipeBrainService {
   z: number = 25;
   y: number = 25;
 
-  cuisineType: string = '';
+  favoriteRecipes: any[] = [];
 
   constructor(private http: HttpClient) {}
 
@@ -89,5 +89,14 @@ export class RecipeBrainService {
         q: searchTerm,
       },
     });
+  };
+
+  addFavorite = (recipe: any): void => {
+    this.favoriteRecipes.push(recipe);
+    console.log(this.favoriteRecipes);
+  };
+
+  getFavorites = (): any[] => {
+    return this.favoriteRecipes;
   };
 }
