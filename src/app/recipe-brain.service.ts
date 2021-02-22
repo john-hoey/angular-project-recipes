@@ -91,9 +91,17 @@ export class RecipeBrainService {
     });
   };
 
-  addFavorite = (recipe: any): void => {
-    this.favoriteRecipes.push(recipe);
-    console.log(this.favoriteRecipes);
+  toggleFavorite = (recipe: any): void => {
+    let index = this.favoriteRecipes.findIndex((item) => {
+      return item.recipe.label === recipe.recipe.label;
+    });
+    if (index === -1) {
+      this.favoriteRecipes.push(recipe);
+      console.log(this.favoriteRecipes);
+    } else {
+      this.favoriteRecipes.splice(index, 1);
+      console.log(this.favoriteRecipes);
+    }
   };
 
   getFavorites = (): any[] => {

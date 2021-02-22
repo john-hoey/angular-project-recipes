@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
     });
   };
   onFavorite = (recipe: any): void => {
-    this.recipeService.addFavorite(recipe);
+    this.recipeService.toggleFavorite(recipe);
     this.getAndSetFavorites();
   };
   getAndSetFavorites = (): void => {

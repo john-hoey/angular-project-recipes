@@ -5,5 +5,7 @@
   *ngFor="let favorite of favoriteRecipes"
   [recipeRef]="favorite"
   [favoritesRef]="favoriteRecipes"
-></app-recipe-card>
+  (toggleEvent)="onFavorite($event)"
+>
+</app-recipe-card>
 <app-footer></app-footer>
