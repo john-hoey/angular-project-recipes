@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RecipeBrainService } from '../recipe-brain.service';
 
 @Component({
@@ -13,14 +13,16 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getInitialRecipes();
-    this.getNextRecipes();
-    this.getPreviousRecipes();
+    // this.getNextRecipes();
+    // this.getPreviousRecipes();
   }
 
   getInitialRecipes = () => {
     this.recipeService.getInitialRecipes().subscribe((response: any) => {
       console.log(response);
       this.recipeData = response;
+
+      console.log(this.recipeData);
     });
   };
 
