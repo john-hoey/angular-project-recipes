@@ -78,4 +78,16 @@ export class RecipeBrainService {
       },
     });
   };
+
+  searchRecipes = (searchTerm: string): any => {
+    return this.http.get(this.recipeSearchUrl, {
+      params: {
+        app_id: this.apiId,
+        app_key: this.apiKey,
+        from: (this.x += this.z).toString(),
+        to: (this.y += this.z).toString(),
+        q: searchTerm,
+      },
+    });
+  };
 }
