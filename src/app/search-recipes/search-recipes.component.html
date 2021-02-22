@@ -1,1 +1,8 @@
-<p>search-recipes works!</p>
+<form
+  #searchRecipesForm="ngForm"
+  (ngSubmit)="emitRecipeSearchTerm(searchRecipesForm)"
+>
+  <label for="searchTerm">Search for Recipes:</label>
+  <input type="text" id="searchTerm" name="searchTerm" ngModel />
+  <button>Search</button>
+</form>

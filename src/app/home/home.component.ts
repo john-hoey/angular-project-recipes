@@ -39,4 +39,11 @@ export class HomeComponent implements OnInit {
       this.recipeService = response;
     });
   };
+
+  onSubmit = (searchTerm: string): void => {
+    this.recipeService.searchRecipes(searchTerm).subscribe((response: any) => {
+      this.recipeData = response;
+      console.log(response);
+    });
+  };
 }
