@@ -7,7 +7,14 @@ import { RecipeBrainService } from '../recipe-brain.service';
   styleUrls: ['./favorites.component.css'],
 })
 export class FavoritesComponent implements OnInit {
-  constructor() {}
+  favoriteRecipes: any[] = [];
+  constructor(private recipeBrainServe: RecipeBrainService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAndSetFavorite();
+  }
+
+  getAndSetFavorite = () => {
+    this.favoriteRecipes = this.recipeBrainServe.getFavorites();
+  };
 }

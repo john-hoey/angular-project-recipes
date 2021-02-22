@@ -5,6 +5,8 @@
 <app-recipe-card
   *ngFor="let recipe of recipeData?.hits; index as i"
   [recipeRef]="recipe"
+  [favoritesRef]="favoriteRecipes"
+  (favoriteEvent)="onFavorite($event)"
 ></app-recipe-card>
 <!-- </ul> -->
 <app-footer></app-footer>

@@ -1,5 +1,9 @@
 <app-header></app-header>
 <h1>Favorite Recipes:</h1>
 <app-filter-recipes></app-filter-recipes>
-<!-- <app-recipe-card></app-recipe-card> -->
+<app-recipe-card
+  *ngFor="let favorite of favoriteRecipes"
+  [recipeRef]="favorite"
+  [favoritesRef]="favoriteRecipes"
+></app-recipe-card>
 <app-footer></app-footer>
