@@ -1,1 +1,10 @@
-<h1>Happy Birthday Nathan!</h1>
+<app-header></app-header>
+<app-search-recipes></app-search-recipes>
+<app-filter-recipes></app-filter-recipes>
+<!-- <ul *ngFor="let recipe of recipeData?.data; index as i" [recipeRef]="recipe"> -->
+<app-recipe-card
+  *ngFor="let recipe of recipeData?.hits; index as i"
+  [recipeRef]="recipe"
+></app-recipe-card>
+<!-- </ul> -->
+<app-footer></app-footer>

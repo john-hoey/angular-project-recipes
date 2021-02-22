@@ -1,1 +1,12 @@
-<p>recipe-card works!</p>
+<p>{{ recipeRef.recipe.label }}</p>
+<img src="{{ recipeRef.recipe.image }}" />
+<p>{{ recipeRef.recipe.dietLabels }}</p>
+<p>{{ recipeRef.recipe.healthLabels }}</p>
+<p>{{ recipeRef.recipe.cautions }}</p>
+<!-- <ul>
+  <li *ngFor="let ingredient of recipeRef?.recipe.ingredientLines; index as i">
+    <p>{{ ingredient }}</p>
+  </li>
+</ul>
+<p>{{ recipeRef.recipe.calories }}</p> -->
+<button>Favorite</button>
