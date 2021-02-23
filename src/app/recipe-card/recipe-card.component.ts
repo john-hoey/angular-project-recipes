@@ -6,7 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./recipe-card.component.css'],
 })
 export class RecipeCardComponent implements OnInit {
-  @Output() favoriteEvent = new EventEmitter<any>();
+  @Output() toggleEvent = new EventEmitter<any>();
 
   @Input() recipeRef: any;
   @Input() favoritesRef!: any[];
@@ -15,12 +15,11 @@ export class RecipeCardComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  emitFavoriteEvent = (recipe: any): void => {
-    this.favoriteEvent.emit(recipe);
+  emitToggleEvent = (recipe: any): void => {
+    this.toggleEvent.emit(recipe);
   };
 
   checkFavorite = (recipe: any): boolean => {
-    console.log(recipe);
     return this.favoritesRef.some((item) => {
       return item.recipe.label === recipe.recipe.label;
     });

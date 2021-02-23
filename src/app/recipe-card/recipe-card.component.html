@@ -10,7 +10,7 @@
 </ul>
 <p>{{ recipeRef.recipe.calories }}</p>
 <button
-  (click)="emitFavoriteEvent(recipeRef)"
+  (click)="emitToggleEvent(recipeRef)"
   [ngClass]="{ favorite: checkFavorite(recipeRef) }"
 >
   Favorite
