@@ -1,8 +1,8 @@
 <app-header></app-header>
 <h1>Favorite Recipes:</h1>
-<app-filter-recipes></app-filter-recipes>
+<app-filter-recipes (searchTerm)="setSearchTerm($event)"></app-filter-recipes>
 <app-recipe-card
-  *ngFor="let favorite of favoriteRecipes"
+  *ngFor="let favorite of filterFavorites(); index as i"
   [recipeRef]="favorite"
   [favoritesRef]="favoriteRecipes"
   (toggleEvent)="onFavorite($event)"

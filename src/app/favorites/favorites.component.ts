@@ -1,4 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { RecipeBrainService } from '../recipe-brain.service';
 
 @Component({
@@ -9,6 +10,8 @@ import { RecipeBrainService } from '../recipe-brain.service';
 export class FavoritesComponent implements OnInit {
   favoriteRecipes: any[] = [];
   recipeService: any;
+  searchTerm: string = '';
+
   constructor(private recipeBrainServe: RecipeBrainService) {}
 
   ngOnInit(): void {
@@ -22,5 +25,20 @@ export class FavoritesComponent implements OnInit {
   onFavorite = (recipe: any): void => {
     this.recipeBrainServe.toggleFavorite(recipe);
     this.getAndSetFavorite();
+  };
+
+  setSearchTerm = (term: string) => {
+    this.searchTerm = term;
+    console.log(term);
+  };
+
+  filterFavorites = (): any[] => {
+    console.log(this.favoriteRecipes);
+    return this.favoriteRecipes.filter((item) => {
+      return item.recipe.label
+        .toLowerCase()
+        .trim()
+        .includes(this.searchTerm.toLowerCase().trim());
+    });
   };
 }
