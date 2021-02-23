@@ -56,6 +56,20 @@ export class RecipeBrainService {
     });
   };
 
+  updateRecipes = (): any => {
+    let apiQ: string = this.cuisine;
+    return this.http.get(this.recipeSearchUrl, {
+      params: {
+        //anytime we refer to a property of a class we must use this. to begin.
+        app_id: this.apiId,
+        app_key: this.apiKey,
+        from: this.x.toString(),
+        to: this.y.toString(),
+        q: apiQ,
+      },
+    });
+  };
+
   getNextRecipes = (): any => {
     let apiQ: string = this.cuisine;
     return this.http.get(this.recipeSearchUrl, {
