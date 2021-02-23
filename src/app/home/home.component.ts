@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RecipeBrainService } from '../recipe-brain.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { RecipeBrainService } from '../recipe-brain.service';
 export class HomeComponent implements OnInit {
   recipeData: any;
   favoriteRecipes: any[] = [];
+  IngredientCard: boolean = false;
 
   constructor(private recipeService: RecipeBrainService) {}
 
