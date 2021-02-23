@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +15,7 @@ export class RecipeBrainService {
   y: number = 25;
 
   favoriteRecipes: any[] = [];
+  favoriteSearchTerm: any;
 
   constructor(private http: HttpClient) {}
 

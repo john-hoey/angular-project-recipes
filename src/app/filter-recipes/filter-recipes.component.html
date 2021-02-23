@@ -1,1 +1,4 @@
-<p>filter-recipes works!</p>
+<form #filterForm="ngForm" (input)="setSearchTerm(filterForm)">
+  <label for="term">Search for Favorites:</label>
+  <input type="text" id="term" name="term" ngModel />
+</form>
