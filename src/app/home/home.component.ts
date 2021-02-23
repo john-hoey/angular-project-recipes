@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
     { id: 100, name: '100' },
   ];
   selected: number = 25;
-  // @Input() z: number;
+  IngredientCard: boolean = false;
   constructor(private recipeService: RecipeBrainService) {}
 
   ngOnInit(): void {
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
   };
 
   updateRecipes = () => {
-    // this.recipeService.y = this.selected;
+    this.recipeService.y = this.selected;
     this.recipeService.z = this.selected;
     this.recipeService.updateRecipes().subscribe((response: any) => {
       // console.log(response);

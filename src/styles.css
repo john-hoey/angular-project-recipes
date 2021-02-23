@@ -2,3 +2,11 @@
 .favorite {
   background-color: red;
 }
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: coral;
+}

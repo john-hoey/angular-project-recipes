@@ -3,12 +3,26 @@
 <p>{{ recipeRef.recipe.dietLabels }}</p>
 <p>{{ recipeRef.recipe.healthLabels }}</p>
 <p>{{ recipeRef.recipe.cautions }}</p>
-<ul>
-  <li *ngFor="let ingredient of recipeRef?.recipe.ingredientLines; index as i">
-    <p>{{ ingredient }}</p>
-  </li>
-</ul>
-<p>{{ recipeRef.recipe.calories }}</p>
+<section
+  [ngClass]="{
+    'show-card': IngredientCard,
+    'hide-card': IngredientCard === false
+  }"
+  class="card-container"
+>
+  <div class="ingredient-container">
+    <h2>{{ recipeRef.recipe.label }}</h2>
+    <ul>
+      <li
+        *ngFor="let ingredient of recipeRef?.recipe.ingredientLines; index as i"
+      >
+        <p>{{ ingredient }}</p>
+      </li>
+    </ul>
+    <p>Calories:{{ recipeRef.recipe.calories }}</p>
+  </div>
+</section>
+<button (click)="showIngredientCard()">Show Ingredients</button>
 <button
   (click)="emitToggleEvent(recipeRef)"
   [ngClass]="{ favorite: checkFavorite(recipeRef) }"
