@@ -1,3 +1,31 @@
-.favorite {
-  background-color: red;
+p {
+  margin-top: 5px;
+}
+
+.hide-card {
+  display: none;
+}
+
+.show-card {
+  display: flex;
+}
+.card-container {
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.ingredient-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-image: url("../../assets/images/71atJIqKIcLACSX679.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: white;
+  border-radius: 15px;
+  text-align: center;
+  width: 700px;
 }
