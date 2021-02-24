@@ -21,53 +21,59 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getInitialRecipes();
-    // this.getInitialRecipes();
+
     // this.getAndSetFavorites();
-    // this.getNextRecipes();
-    // this.getPreviousRecipes();
   }
 
   selectOption = (id: number): void => {
-    console.log(id);
-    console.log(this.selected);
+    this.selected = id;
     this.updateRecipes();
-    // this.getAndSetFavorites();
   };
 
   getInitialRecipes = () => {
-    this.recipeService.y = this.selected;
     this.recipeService.getInitialRecipes().subscribe((response: any) => {
       this.recipeData = response;
 
       console.log(this.recipeData);
+      console.log(this.recipeService.z);
     });
   };
 
   updateRecipes = () => {
-    this.recipeService.y = this.selected;
     this.recipeService.z = this.selected;
     this.recipeService.updateRecipes().subscribe((response: any) => {
-      // console.log(response);
-      this.recipeData = response;
-
-      console.log(this.recipeData);
-    });
-  };
-
-  getNextRecipes = () => {
-    this.recipeService.getNextRecipes().subscribe((response: any) => {
       console.log(response);
-      this.recipeService = response;
+      this.recipeData = response;
+      console.log(this.recipeService.z);
     });
   };
 
   getPreviousRecipes = () => {
-    this.recipeService.getPreviousRecipes().subscribe((response: any) => {
-      console.log(response);
-      this.recipeService = response;
-    });
+    if (
+      this.recipeService.x >= 0 &&
+      this.recipeService.y >= 0 &&
+      this.recipeService.counter > 0
+    ) {
+      this.recipeService.getPreviousRecipes().subscribe((response: any) => {
+        console.log(response);
+        this.recipeData = response;
+        this.updateRecipes();
+      });
+    } else {
+      alert('You are already on the first page!');
+    }
   };
 
+  getNextRecipes = () => {
+    if (this.recipeService.y < 100) {
+      this.recipeService.getNextRecipes().subscribe((response: any) => {
+        console.log(response);
+        this.recipeData = response;
+      });
+    } else {
+      alert('You are already on the last page!');
+    }
+  };
   onSubmit = (searchTerm: string): void => {
     this.recipeService.searchRecipes(searchTerm).subscribe((response: any) => {
       this.recipeData = response;

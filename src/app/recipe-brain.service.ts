@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NgForm } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -10,9 +9,10 @@ export class RecipeBrainService {
   apiKey: string = 'd0f24593bc472cc66c9aaaf866211215';
   apiQ: string = '';
   recipeSearchUrl: string = 'https://api.edamam.com/search';
+  counter: number = 1;
   x: number = 0;
-  z: number = 25;
   y: number = 25;
+  z: number = 25;
 
   favoriteRecipes: any[] = [];
   favoriteSearchTerm: any;
@@ -58,20 +58,31 @@ export class RecipeBrainService {
 
   updateRecipes = (): any => {
     let apiQ: string = this.cuisine;
+    if (this.y > this.z) {
+      this.y = this.z;
+    }
+    console.log(this.z);
     return this.http.get(this.recipeSearchUrl, {
       params: {
         //anytime we refer to a property of a class we must use this. to begin.
         app_id: this.apiId,
         app_key: this.apiKey,
         from: this.x.toString(),
-        to: this.y.toString(),
+        to: this.z.toString(),
         q: apiQ,
       },
     });
   };
 
   getNextRecipes = (): any => {
+    this.counter++;
+    console.log(this.y);
+
     let apiQ: string = this.cuisine;
+    if (this.y < this.z) {
+      this.y = this.z;
+    }
+
     return this.http.get(this.recipeSearchUrl, {
       params: {
         app_id: this.apiId,
@@ -83,6 +94,7 @@ export class RecipeBrainService {
     });
   };
   getPreviousRecipes = (): any => {
+    this.counter--;
     let apiQ: string = this.cuisine;
     return this.http.get(this.recipeSearchUrl, {
       params: {
@@ -96,12 +108,13 @@ export class RecipeBrainService {
   };
 
   searchRecipes = (searchTerm: string): any => {
+    this.counter = 1;
     return this.http.get(this.recipeSearchUrl, {
       params: {
         app_id: this.apiId,
         app_key: this.apiKey,
-        from: (this.x += this.z).toString(),
-        to: (this.y += this.z).toString(),
+        from: this.x.toString(),
+        to: this.z.toString(),
         q: searchTerm,
       },
     });

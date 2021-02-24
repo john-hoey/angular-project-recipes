@@ -1,14 +1,5 @@
 <app-header></app-header>
 <app-search-recipes (searchEvent)="onSubmit($event)"></app-search-recipes>
-
-<!-- <ul *ngFor="let recipe of recipeData?.data; index as i" [recipeRef]="recipe"> -->
-<!-- <form #recipeQuantity="ngForm" ng(submit)="onQtySubmit()">
-  <select name="quantity" id="quantity">
-    <option disabled>Select Display Result Quantity(default 25)</option>
-    <option *ngFor="let quantity of quantities"> {{</option>
-  </select>
-</form> -->
-
 <div>
   <select (change)="selectOption($event.target.value)" [(ngModel)]="selected">
     <option [value]="item.id" *ngFor="let item of displayQtys">
@@ -23,7 +14,6 @@
   [favoritesRef]="favoriteRecipes"
   (toggleEvent)="onFavorite($event)"
 ></app-recipe-card>
-<button (click)="getPreviousRecipes()">Next Page</button>
-<button (click)="getNextRecipes()">Previous Page</button>
-<!-- </ul> -->
+<button (click)="getPreviousRecipes()">Previous Page</button>
+<button (click)="getNextRecipes()">Next Page</button>
 <app-footer></app-footer>
