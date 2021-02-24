@@ -9,7 +9,7 @@
 </div>
 
 <app-recipe-card
-  *ngFor="let recipe of recipeData?.hits; index as i"
+  *ngFor="let recipe of recipeDataShown"
   [recipeRef]="recipe"
   [favoritesRef]="favoriteRecipes"
   (toggleEvent)="onFavorite($event)"
