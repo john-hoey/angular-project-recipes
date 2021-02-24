@@ -2,3 +2,16 @@
 .favorite {
   background-color: red;
 }
+
+.background {
+  background-color: lightgray;
+}
+
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
