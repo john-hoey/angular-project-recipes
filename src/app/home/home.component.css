@@ -1,0 +1,38 @@
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-wrap: wrap;
+}
+
+.recipe-card {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 550px;
+  height: 550px;
+  position: relative;
+  margin: 5px;
+
+  background-color: rgba(204, 204, 204, 0.5);
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 18px;
+}
+
+.selector {
+  margin: 10px;
+}
+
+.button-div {
+  display: flex;
+  justify-content: center;
+}

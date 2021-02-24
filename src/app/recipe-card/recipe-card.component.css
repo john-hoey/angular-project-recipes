@@ -15,7 +15,7 @@ p {
 
   height: 100%;
   width: 100%;
-  z-index: 1;
+  position: absolute;
 }
 
 .ingredient-container {
@@ -27,5 +27,45 @@ p {
   background-color: white;
   border-radius: 15px;
   text-align: center;
-  width: 700px;
+  width: 500px;
+
+  z-index: 1;
+  position: relative;
+}
+
+.image {
+  display: flex;
+  border-radius: 10px;
+}
+
+.button {
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.card-button {
+  border-radius: 5px;
+  height: 40px;
+  width: 40px;
+}
+
+.button-div {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.labels {
+  background-color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+p {
+  margin: 5px;
 }

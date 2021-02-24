@@ -1,6 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
 .favorite {
   background-color: red;
+  color: white;
+}
+
+.background {
+  background-image: url(assets/images/background-image.png);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 li {
