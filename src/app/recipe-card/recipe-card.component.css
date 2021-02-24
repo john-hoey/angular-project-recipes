@@ -17,7 +17,10 @@ p {
   width: 100%;
   position: absolute;
 }
-
+.card-label {
+  color: white;
+  font-size: large;
+}
 .ingredient-container {
   display: flex;
   flex-wrap: wrap;

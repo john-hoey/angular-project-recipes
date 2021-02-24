@@ -10,32 +10,60 @@
   text-decoration: none;
   background-color: transparent;
   margin-top: -30px;
+
   /* background-image: url("../../assets/images/header.png"); */
 }
+
 .logo-h1 {
   padding: 0px;
+  margin-left: 0px;
 }
+
 .logo-anchor {
   font-family: "Bungee Outline", cursive;
-  font-size: 100pt;
+  font-size: 35pt;
   color: white;
 }
+
 .header-button {
   background-color: red;
   padding: 10px;
   margin-top: 0px;
-  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-left: -38px;
+  margin-bottom: 5px;
   border-radius: 5px;
   border: none;
 }
+
 .nav-class {
   margin-top: -80px;
 }
+
 .favorite-rep {
-  font-size: 20px;
+  font-size: 18px;
 }
 .nav-anchor,
 .logo-anchor {
   text-decoration: none;
   color: white;
+}
+
+@media only screen and (min-width: 1300px) {
+  .logo-anchor {
+    font-size: 100pt;
+  }
+
+  .header-button {
+    background-color: red;
+    padding: 10px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: none;
+  }
+
+  .favorite-rep {
+    font-size: 20px;
+  }
 }
