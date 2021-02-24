@@ -1,11 +1,19 @@
 <app-header></app-header>
 <app-search-recipes (searchEvent)="onSubmit($event)"></app-search-recipes>
-
-<!-- <ul *ngFor="let recipe of recipeData?.data; index as i" [recipeRef]="recipe"> -->
+<div>
+  <select (change)="selectOption($event.target.value)" [(ngModel)]="selected">
+    <option [value]="item.id" *ngFor="let item of displayQtys">
+      {{ item.name }}
+    </option>
+  </select>
+</div>
 <app-recipe-card
-  *ngFor="let recipe of recipeData?.hits; index as i"
+  *ngFor="let recipe of recipeDataShown"
   [recipeRef]="recipe"
   [favoritesRef]="favoriteRecipes"
   (toggleEvent)="onFavorite($event)"
 ></app-recipe-card>
+<!-- the new buttons -->
+<button (click)="getPreviousRecipes()">Previous Page</button>
+<button (click)="getNextRecipes()">Next Page</button>
 <app-footer></app-footer>
