@@ -16,3 +16,11 @@ body {
 
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: coral;
+}
