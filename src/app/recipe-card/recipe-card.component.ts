@@ -26,7 +26,7 @@ export class RecipeCardComponent implements OnInit {
       return item.recipe.label === recipe.recipe.label;
     });
   };
-
+  // Nice job here
   showIngredientCard = () => {
     this.IngredientCard = !this.IngredientCard;
   };

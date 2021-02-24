@@ -10,7 +10,7 @@ export class RecipeBrainService {
   apiQ: string = '';
   recipeSearchUrl: string = 'https://api.edamam.com/search';
   z: number = 25;
-
+  //cleaned all my unused garbage out.
   favoriteRecipes: any[] = [];
   favoriteSearchTerm: any;
 

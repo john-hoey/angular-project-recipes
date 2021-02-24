@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getInitialRecipes();
-
+    //turned this back on cause we arent spamming the api calls now
     this.getAndSetFavorites();
   }
 
