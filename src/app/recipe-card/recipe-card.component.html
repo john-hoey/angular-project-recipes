@@ -1,17 +1,42 @@
 <p>{{ recipeRef.recipe.label }}</p>
-<img src="{{ recipeRef.recipe.image }}" />
-<p>{{ recipeRef.recipe.dietLabels }}</p>
-<p>{{ recipeRef.recipe.healthLabels }}</p>
-<p>{{ recipeRef.recipe.cautions }}</p>
-<ul>
-  <li *ngFor="let ingredient of recipeRef?.recipe.ingredientLines; index as i">
-    <p>{{ ingredient }}</p>
-  </li>
-</ul>
-<p>{{ recipeRef.recipe.calories }}</p>
+<img src="{{ recipeRef.recipe.image }}" class="image" />
+<div class="labels">
+  <p>Diet Label: {{ recipeRef.recipe.dietLabels }}</p>
+  <p>Health Label:</p>
+  <p>{{ recipeRef.recipe.healthLabels }}</p>
+  <p>Caution: {{ recipeRef.recipe.cautions }}</p>
+</div>
+<section
+  [ngClass]="{
+    'show-card': IngredientCard,
+    'hide-card': IngredientCard === false
+  }"
+  class="card-container"
+>
+  <div class="ingredient-container">
+    <h2>
+      <a href="{{ recipeRef.recipe.url }}"> {{ recipeRef.recipe.label }}</a>
+    </h2>
+
+    <div class="button-div">
+      <button (click)="showIngredientCard()" class="card-button">X</button>
+    </div>
+    <ul>
+      <li
+        *ngFor="let ingredient of recipeRef?.recipe.ingredientLines; index as i"
+      >
+        <p>{{ ingredient }}</p>
+      </li>
+    </ul>
+    <p>Calories: {{ recipeRef.recipe.calories.toFixed(2) }}</p>
+  </div>
+</section>
+<button (click)="showIngredientCard()" class="button">Show Ingredients</button>
 <button
   (click)="emitToggleEvent(recipeRef)"
   [ngClass]="{ favorite: checkFavorite(recipeRef) }"
+  class="button"
 >
   Favorite
 </button>
+<!-- What else do we want to display if anything? -->

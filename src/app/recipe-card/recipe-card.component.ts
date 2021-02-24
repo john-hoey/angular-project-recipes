@@ -7,9 +7,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class RecipeCardComponent implements OnInit {
   @Output() toggleEvent = new EventEmitter<any>();
+  @Output() showCardEvent = new EventEmitter<any>();
 
   @Input() recipeRef: any;
   @Input() favoritesRef!: any[];
+
+  IngredientCard: boolean = false;
 
   constructor() {}
 
@@ -18,10 +21,13 @@ export class RecipeCardComponent implements OnInit {
   emitToggleEvent = (recipe: any): void => {
     this.toggleEvent.emit(recipe);
   };
-
   checkFavorite = (recipe: any): boolean => {
     return this.favoritesRef.some((item) => {
       return item.recipe.label === recipe.recipe.label;
     });
+  };
+  // Nice job here
+  showIngredientCard = () => {
+    this.IngredientCard = !this.IngredientCard;
   };
 }

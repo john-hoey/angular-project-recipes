@@ -1,3 +1,71 @@
-.favorite {
-  background-color: red;
+p {
+  margin-top: 5px;
+}
+
+.hide-card {
+  display: none;
+}
+
+.show-card {
+  display: flex;
+}
+.card-container {
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.ingredient-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-image: url("../../assets/images/71atJIqKIcLACSX679.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: white;
+  border-radius: 15px;
+  text-align: center;
+  width: 500px;
+
+  z-index: 1;
+  position: relative;
+}
+
+.image {
+  display: flex;
+  border-radius: 10px;
+}
+
+.button {
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.card-button {
+  border-radius: 5px;
+  height: 40px;
+  width: 40px;
+}
+
+.button-div {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.labels {
+  background-color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+p {
+  margin: 5px;
 }

@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { NgForm } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
@@ -10,10 +9,8 @@ export class RecipeBrainService {
   apiKey: string = 'd0f24593bc472cc66c9aaaf866211215';
   apiQ: string = '';
   recipeSearchUrl: string = 'https://api.edamam.com/search';
-  x: number = 0;
   z: number = 25;
-  y: number = 25;
-
+  //cleaned all my unused garbage out.
   favoriteRecipes: any[] = [];
   favoriteSearchTerm: any;
 
@@ -49,33 +46,8 @@ export class RecipeBrainService {
         //anytime we refer to a property of a class we must use this. to begin.
         app_id: this.apiId,
         app_key: this.apiKey,
-        from: this.x.toString(),
-        to: this.y.toString(),
-        q: apiQ,
-      },
-    });
-  };
-
-  getNextRecipes = (): any => {
-    let apiQ: string = this.cuisine;
-    return this.http.get(this.recipeSearchUrl, {
-      params: {
-        app_id: this.apiId,
-        app_key: this.apiKey,
-        from: (this.x += this.z).toString(),
-        to: (this.y += this.z).toString(),
-        q: apiQ,
-      },
-    });
-  };
-  getPreviousRecipes = (): any => {
-    let apiQ: string = this.cuisine;
-    return this.http.get(this.recipeSearchUrl, {
-      params: {
-        app_id: this.apiId,
-        app_key: this.apiKey,
-        from: (this.x -= this.z).toString(),
-        to: (this.y -= this.z).toString(),
+        from: '0',
+        to: '100',
         q: apiQ,
       },
     });
@@ -86,8 +58,8 @@ export class RecipeBrainService {
       params: {
         app_id: this.apiId,
         app_key: this.apiKey,
-        from: (this.x += this.z).toString(),
-        to: (this.y += this.z).toString(),
+        from: '0',
+        to: this.z.toString(),
         q: searchTerm,
       },
     });

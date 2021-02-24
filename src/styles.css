@@ -1,13 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 .favorite {
   background-color: red;
+  color: white;
 }
 
 .background {
-  background-color: lightgray;
+  background-image: url(assets/images/background-image.png);
 }
 
-.body {
+body {
   display: flex;
   justify-content: center;
   align-items: center;
