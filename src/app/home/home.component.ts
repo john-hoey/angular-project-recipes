@@ -41,7 +41,6 @@ export class HomeComponent implements OnInit {
       this.recipeDataShown = this.recipeData.hits.filter(
         (recipe: any, idx: number) => idx < this.y
       );
-
       console.log(this.recipeData);
       console.log(this.recipeDataShown);
       console.log(this.recipeData.hits);

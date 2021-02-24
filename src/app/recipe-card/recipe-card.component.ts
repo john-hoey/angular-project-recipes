@@ -21,7 +21,6 @@ export class RecipeCardComponent implements OnInit {
   emitToggleEvent = (recipe: any): void => {
     this.toggleEvent.emit(recipe);
   };
-
   checkFavorite = (recipe: any): boolean => {
     return this.favoritesRef.some((item) => {
       return item.recipe.label === recipe.recipe.label;
